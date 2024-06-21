@@ -1,29 +1,16 @@
 "use client";
-import styles from "./page.module.css";
 import React, { useState } from "react";
-import { fetchData } from "@/utils/utils";
 import WeatherCard from "./WeatherCard";
-import { defaultCityData } from "@/utils/utils";
+import { defaultCityData } from "@/utils";
+import { useWeather } from "./hooks/useWeather";
 
 export default function Home() {
-  const [inputValue, setInputValue] = useState("");
-  const [cityData, setCityData] = useState(defaultCityData);
-  const [isLoading, setIsLoading] = useState(true)
+  const [city, setCity] = useState("");
+  const {loading, weatherData, fetchWeather} = useWeather(defaultCityData);
 
   const onInputValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-
-    setInputValue(value);
-  };
-
-  const getCityData = async () => {
-    setIsLoading(true)
-    const data = await fetchData(`/api/weather?city=${inputValue}`);
-    if (data) {
-      setCityData(data);
-      setIsLoading(false)
-      console.log("DATA: ", data["location"]);
-    }
+    setCity(value);
   };
 
   return (
@@ -35,11 +22,11 @@ export default function Home() {
           type="text"
           onChange={onInputValueChange}
         />
-        <button className="btn" onClick={getCityData}>
+        <button className="btn" onClick={() => fetchWeather(city)}>
           Check
         </button>
       </div>
-      <WeatherCard cityData={cityData} isLoading={isLoading} />
+      <WeatherCard data={weatherData} loading={loading} />
     </main>
   );
 }
