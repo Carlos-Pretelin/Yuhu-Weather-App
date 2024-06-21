@@ -27,21 +27,29 @@ const WeatherCard = ({ cityData, isLoading }: any) => {
   console.log("isLoading", isLoading);
   return (
     <>
-      <div className="main-container font-mono text-white w-full h-96 bg-base-300 rounded-lg shadow-lg overflow-hidden">
+      <div className="main-container font-mono text-white w-full h-[450px] bg-base-300 rounded-lg shadow-lg overflow-hidden mt-[60px]">
         <div className="top flex justify-between flex-row h-2/5 w-full bg-neutral p-5">
-          <div className="left flex items-center justify-around w-4/12 h-full bg-base-100 rounded-lg shadow-md p-2">
-            <img
-              className="w-2/5 h-3/5 object-cover"
-              src={cityData["current"].weather_icons[0]}
-              alt="weather type icon"
-            />
-            <div className="flex flex-row">
-              <p className="text-4xl font-bold">
-                {cityData["current"].temperature}°
-              </p>
-              <p className="text-2xl font-bold">C</p>
+          {isLoading ? (
+            <div className="flex flex-row gap-4 w-4/12 h-full bg-base-100 rounded-lg shadow-md p-4">
+              <div className="skeleton w-[100px] h-[100px]"></div>
+              <div className="skeleton w-[100px] h-[100px]"></div>
             </div>
-          </div>
+          ) : (
+            <div className="left flex items-center justify-around w-4/12 h-full bg-base-100 rounded-lg shadow-md p-2">
+              <img
+                className="w-2/5 h-3/5 object-cover"
+                src={cityData["current"].weather_icons[0]}
+                alt="weather type icon"
+              />
+              <div className="flex flex-row">
+                <p className="text-4xl font-bold">
+                  {cityData["current"].temperature}°
+                </p>
+                <p className="text-2xl font-bold">C</p>
+              </div>
+            </div>
+          )}
+
           <div className="right w-6/12 h-full bg-base-100 rounded-lg shadow-md p-2 flex flex-col justify-center items-center">
             <p className="text-lg font-semibold">Weather</p>
             <p className="text-md">
@@ -61,11 +69,9 @@ const WeatherCard = ({ cityData, isLoading }: any) => {
               <div className="skeleton h-4 w-2/5"></div>
               <div className="skeleton h-4 w-2/5"></div>
               <div className="skeleton h-4 w-1/5"></div>
-
             </div>
           ) : (
             <div className="w-full h-full flex flex-col justify-evenly">
-              
               <p className="text-3xl font-bold">{cityData["request"].query}</p>
               <p className="text-sm">
                 Time Zone:{" "}
@@ -83,9 +89,7 @@ const WeatherCard = ({ cityData, isLoading }: any) => {
               <p className="text-sm">
                 Pressure: {cityData["current"].pressure} hPa
               </p>
-              
             </div>
-
           )}
         </div>
       </div>

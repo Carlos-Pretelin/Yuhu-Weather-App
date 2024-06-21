@@ -8,7 +8,7 @@ import { defaultCityData } from "@/utils/utils";
 export default function Home() {
   const [inputValue, setInputValue] = useState("");
   const [cityData, setCityData] = useState(defaultCityData);
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
 
   const onInputValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
