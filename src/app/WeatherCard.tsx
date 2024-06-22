@@ -1,12 +1,8 @@
 import React from "react";
+import { formatRegionString } from "@/utils";
 
 const WeatherCard = ({ data, loading }: any) => {
-  const formatRegionString = (regionString: string) => {
-    const splitedString = regionString.split("/");
-    const newString = splitedString.join(", ").replace("_", " ");
-    console.log(newString);
-    return newString;
-  };
+  
 
   return (
     <div className="main-container font-mono text-white w-full h-[450px] bg-base-300 rounded-lg shadow-lg overflow-hidden mt-[20px]">
