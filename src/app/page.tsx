@@ -5,7 +5,7 @@ import { defaultCityData } from "@/utils";
 import { useWeather } from "./hooks/useWeather";
 
 export default function Home() {
-  const [city, setCity] = useState("");
+  const [city, setCity] = useState<string>("");
   const { loading, weatherData, error, fetchWeather } =
     useWeather(defaultCityData);
   const [inputError, setInputError] = useState<boolean>(false);

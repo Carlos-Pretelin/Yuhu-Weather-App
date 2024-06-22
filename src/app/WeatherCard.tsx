@@ -1,7 +1,12 @@
 import React from "react";
 import { formatRegionString } from "@/utils";
 
-const WeatherCard = ({ data, loading }: any) => {
+interface WeatherCardProps {
+  data: any;
+  loading: boolean;
+}
+
+const WeatherCard: React.FC<WeatherCardProps> = ({ data, loading }: any) => {
   return (
     <div className="main-container font-mono text-white w-full h-auto bg-base-300 rounded-lg shadow-lg overflow-hidden mt-[20px]">
       <div className="top flex flex-col justify-between h-2/5 w-full bg-neutral p-5 sm:flex-row gap-5 items-center ">
