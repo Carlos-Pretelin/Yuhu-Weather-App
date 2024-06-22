@@ -28,13 +28,13 @@ export default function Home() {
     <main className="flex flex-col lg:max-w-[720px] w-full mx-auto mt-[60px]">
       <h1 className="text-5xl mb-[15px]">YUHU Interview Weather App</h1>
       {inputError && (
-          <p className="text-red-500 mt-4">
-            ERROR: campo vacío, ingresa el nombre de una ciudad!
-          </p>
-        )}
+        <p className="text-red-500 mt-4">
+          ERROR: campo vacío, ingresa el nombre de una ciudad!
+        </p>
+      )}
+      {error && <p className="text-red-500 mt-4">{error}</p>}
       <div className="flex mt-[20px]">
-        {/* {error && <p className="text-red-500 mt-4">{error}</p>} */}
-        
+
         <input
           id="cityInput"
           className="p-3 w-full mr-1 rounded-xl"

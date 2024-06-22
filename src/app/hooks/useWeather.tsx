@@ -15,23 +15,28 @@ export const useWeather = (defaultCityData: any): UseWeather => {
   //Loading default data because the API has a 250 requests limit per month
   const [weatherData, setWeatherData] = useState(defaultCityData);
 
-  const fetchWeather = useCallback( async (value: string) => {
+  const fetchWeather = async (value: string) => {
     setLoading(true);
     setError(null);
 
     try {
       const data = await fetchData(`/api/weather?city=${value}`);
 
+      if (data.error) {
+        setError(data.error.info || "Failed to fetch weather data. Please try again."); // Establece el mensaje de error
+        setLoading(false); 
+        return; 
+      }
+
       if (data) {
         setWeatherData(data);
-        setLoading(false);
+        setLoading(false); 
       }
     } catch (err) {
       setLoading(false);
       setError("Failed to fetch weather data. Please try again.");
-      console.log("ERROR ERROR ")
     }
-  }, []);
+  };
 
   return {
     loading,
