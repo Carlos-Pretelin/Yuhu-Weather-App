@@ -1,36 +1,28 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Aplicación de Clima
 
-## Getting Started
+Esta aplicación permite visualizar el clima y otros datos meteorológicos de cualquier ciudad ingresada en el campo de búsqueda. Para obtener esta información, se utiliza la API gratuita de Weather Stack.
 
-First, run the development server:
+## Características
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Visualización del clima y datos meteorológicos.
+- Campo de búsqueda para consultar el clima de cualquier ciudad.
+- Información predeterminada de la Ciudad de México.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Información Predeterminada
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Por defecto, la aplicación muestra la información meteorológica de la Ciudad de México. **Nota:** Esta información predeterminada esta desactualizada. Para obtener datos climáticos actualizados de la Ciudad de México, es necesario buscar la ciudad en el campo de búsqueda.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+La razón para esta configuración es la limitación de 250 solicitudes por mes impuesta por la API. Aunque lo ideal sería usar el hook `useEffect()` para obtener datos en tiempo real de la Ciudad de México, he optado por esta configuración predeterminada para conservar las solicitudes disponibles.
 
-## Learn More
+## Tecnologías Utilizadas
 
-To learn more about Next.js, take a look at the following resources:
+- **Next.js**
+- **TypeScript**
+- **Tailwind CSS**
+- **React.js**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Despliegue
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+El despliegue de la aplicación se realizó en [Vercel](https://vercel.com) para simplificar el proceso de compartir la aplicación, evitando la necesidad de proporcionar instrucciones detalladas de despliegue.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[Link de la App:](https://yuhu-weather-app.vercel.app/)
