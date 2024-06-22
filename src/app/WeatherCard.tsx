@@ -18,7 +18,7 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ data, loading }: any) => {
         ) : (
           <div className="left flex items-center justify-around w-4/5 h-[130px] bg-base-100 rounded-lg shadow-md p-2 sm:w-1/3 sm:mb-[10px]">
             <img
-              className="w-2/5 h-3/5"
+              className="w-2/5 h-3/5 max-w-24"
               src={data["current"].weather_icons[0]}
               alt="weather type icon"
             />
