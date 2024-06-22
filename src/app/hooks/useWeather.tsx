@@ -23,7 +23,7 @@ export const useWeather = (defaultCityData: any): UseWeather => {
       const data = await fetchData(`/api/weather?city=${value}`);
 
       if (data.error) {
-        setError(data.error.info || "Failed to fetch weather data. Please try again."); // Establece el mensaje de error
+        setError(data.error.info || "Failed to fetch weather data. Please try again.");
         setLoading(false); 
         return; 
       }

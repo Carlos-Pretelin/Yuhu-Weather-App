@@ -15,7 +15,6 @@ export const fetchData = async (url: string): Promise<any> => {
 
 export const formatRegionString = (regionString: string) => {
   const newString = regionString.split("/").join(", ").replace("_", " ");
-  console.log(newString);
   return newString;
 };
 

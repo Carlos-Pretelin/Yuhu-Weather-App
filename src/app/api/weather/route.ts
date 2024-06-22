@@ -1,7 +1,7 @@
 import { fetchData } from "@/utils";
 
-const API_BASE_URL = "http://api.weatherstack.com"
-const API_KEY = "6e2c322af135808741980494c619e695"
+const API_BASE_URL = "http://api.weatherstack.com";
+const API_KEY = "6e2c322af135808741980494c619e695";
 
 export async function GET(request: any) {
   const { searchParams } = new URL(request.url);

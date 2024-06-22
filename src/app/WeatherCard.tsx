@@ -2,20 +2,18 @@ import React from "react";
 import { formatRegionString } from "@/utils";
 
 const WeatherCard = ({ data, loading }: any) => {
-  
-
   return (
-    <div className="main-container font-mono text-white w-full h-[450px] bg-base-300 rounded-lg shadow-lg overflow-hidden mt-[20px]">
-      <div className="top flex justify-between flex-row h-2/5 w-full bg-neutral p-5">
+    <div className="main-container font-mono text-white w-full h-auto bg-base-300 rounded-lg shadow-lg overflow-hidden mt-[20px]">
+      <div className="top flex flex-col justify-between h-2/5 w-full bg-neutral p-5 sm:flex-row gap-5 items-center ">
         {loading ? (
           <div className="flex flex-row gap-4 w-4/12 h-full bg-base-100 rounded-lg shadow-md p-4">
             <div className="skeleton w-[100px] h-[100px]"></div>
             <div className="skeleton w-[100px] h-[100px]"></div>
           </div>
         ) : (
-          <div className="left flex items-center justify-around w-4/12 h-full bg-base-100 rounded-lg shadow-md p-2">
+          <div className="left flex items-center justify-around w-4/5 h-[130px] bg-base-100 rounded-lg shadow-md p-2 sm:w-1/3 sm:mb-[10px]">
             <img
-              className="w-2/5 h-3/5 object-cover"
+              className="w-2/5 h-3/5"
               src={data["current"].weather_icons[0]}
               alt="weather type icon"
             />
@@ -28,7 +26,7 @@ const WeatherCard = ({ data, loading }: any) => {
           </div>
         )}
 
-        <div className="right w-6/12 h-full bg-base-100 rounded-lg shadow-md p-2 flex flex-col justify-center items-center">
+        <div className="right w-4/5 h-[130px] bg-base-100 rounded-lg shadow-md p-2 flex flex-col justify-center items-center sm:w-1/2 ">
           {loading ? (
             <div className="flex flex-col gap-6 w-full p-5">
               <div className="skeleton h-4 w-4/5 "></div>
